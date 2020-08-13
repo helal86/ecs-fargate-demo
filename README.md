@@ -51,7 +51,7 @@ The code uses variables to inject some settings, eg region - this can be set to 
 
   
 
-Settings such as the CIDR block and app image can be changed in the variables file. The app image in use is a sample web app freely available on docker hub and is being used for the ease of this demo, there is a second app image from `mmumshad/simple-webapp` which returns back text only and runs on port 5000 - if you would like to see this demo change the app_port to 5000 and set the app_image to `mmumshad/simple-webapp:latest`
+Settings such as the CIDR block and app image can be changed in the variables file. The app image in use is a sample web app freely available on docker hub and is being used for the ease of this demo, there is a second app image from `mmumshad/simple-webapp` which returns back text only and runs on port `5000` - if you would like to see this demo change the `app_port` to `5000` and set the `app_image` to `mmumshad/simple-webapp:latest`
 
   
 
