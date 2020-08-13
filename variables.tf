@@ -1,6 +1,6 @@
 variable "aws_region" {
   description = "AWS Region to deploy to"
-  default     = "eu-west-2"
+  default     = "us-west-2"
 }
 
 variable "cidr_block" {
