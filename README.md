@@ -4,7 +4,7 @@
 
   
 
-The repository contains terraform code to deploy an ECS cluster running Fargate and runs a demo web application pulled from Docker hub.
+The repository contains terraform code to deploy an ECS cluster running Fargate and runs a demo web application pulled from Docker hub. By default this will deploy into US-West-2!
 
   
 
