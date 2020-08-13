@@ -125,3 +125,11 @@ This can be tested by using performance testing tools available online.
   
 
 - Cloudwatch alarms with SNS to send out alarms
+
+## Network Diagram 
+
+The infrastrucure builds what is seen in the diagram below 
+
+<img src="https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2018/01/26/Slide5-1024x647.png"  
+alt="Network Diagram"  
+style="float: left; margin-right: 10px;" />
