@@ -14,6 +14,7 @@ Edit the `credentials` file in the root of the folder and enter your AWS secret 
 2. Run `terraform plan` to have terraform plan the deployment which will return back with all the changes required 
 3. Apply the changes by running `terraform apply`, terraform will prompt you to confirm if you want to proceed, type `yes` and the deployment will begin - this will take several minutes to complete
 4. Terraform will output a DNS name which can be copied into a browser and the webapp will be displayed
+5. You may get a 503 error whilst the cluster is provisioning the tasks - please wait 
 
 **What is the code doing?**
 
@@ -43,7 +44,7 @@ A cluster is defined and set to use fargate, the task definition is set as a tem
 
 **Auto Scaling** 
 
-Auto scaling using cloudwatch metrics based on CPU usage only which triggers an increase in the number of containers should the CPU reach a threshold of 85 and scale back down when the CPU hits 40. 
+Auto scaling using cloudwatch metrics based on CPU usage only which triggers an increase in the number of containers should the CPU reach a threshold of 85 and scale back down when the CPU hits 40. There is a second auto scaling metric using the memory usage - the values of the threshold can be altered in the variables.tf file
 
 This can be tested by using performance testing tools available online. 
 
@@ -58,6 +59,8 @@ This can be tested by using performance testing tools available online.
 
 - Showcase RDS as terraform and have web app talk to the DB to pull data and display it on the website 
 
-- Auto scaling policy on memory usage 
+- Continuous delivery - have the cluster pull the latest version of the docker image when a change is pushed 
+
+- Cloudwatch alarms with SNS to send out alarms 
 
 
