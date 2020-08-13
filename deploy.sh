@@ -9,7 +9,7 @@ terraform apply -auto-approve
 LB=$(terraform output alb_hostname) 
 
 echo "Waiting for cluster to provision itself..."
-sleep 30
+sleep 60
 curl $LB
 
 exit
