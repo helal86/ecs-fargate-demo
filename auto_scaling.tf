@@ -57,7 +57,7 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_high" {
   namespace           = "AWS/ECS"
   period              = "60"
   statistic           = "Average"
-  threshold           = "85" # could be a var 
+  threshold           = var.cpu_threshold_high 
 
   dimensions = {
     ClusterName = aws_ecs_cluster.main.name
@@ -76,7 +76,7 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_low" {
   namespace           = "AWS/ECS"
   period              = "60"
   statistic           = "Average"
-  threshold           = "40" # could be a var
+  threshold           = var.cpu_threshold_low
 
   dimensions = {
     ClusterName = aws_ecs_cluster.main.name
@@ -86,3 +86,39 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_low" {
   alarm_actions = [aws_appautoscaling_policy.down.arn]
 }
 
+# CloudWatch alarm on memory usage 
+resource "aws_cloudwatch_metric_alarm" "memory_high" {
+  alarm_name          = "memory_usage_high"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "MemoryUtilization"
+  namespace           = "AWS/ECS"
+  period              = "60"
+  statistic           = "Average"
+  threshold           = var.memory_threshold_high  
+
+  dimensions = {
+    ClusterName = aws_ecs_cluster.main.name
+    ServiceName = aws_ecs_service.main.name
+  }
+
+  alarm_actions = [aws_appautoscaling_policy.up.arn]
+}
+
+resource "aws_cloudwatch_metric_alarm" "memory_low" {
+  alarm_name          = "memory_usage_low"
+  comparison_operator = "LessThanOrEqualToThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "MemoryUtilization"
+  namespace           = "AWS/ECS"
+  period              = "60"
+  statistic           = "Average"
+  threshold           = var.memory_threshold_low
+
+  dimensions = {
+    ClusterName = aws_ecs_cluster.main.name
+    ServiceName = aws_ecs_service.main.name
+  }
+
+  alarm_actions = [aws_appautoscaling_policy.down.arn]
+}

@@ -1,5 +1,6 @@
 variable "aws_region" {
-  default     = "us-west-2"
+  description = "AWS Region to deploy to"
+  default     = "eu-west-2"
 }
 
 variable "cidr_block" {
@@ -44,3 +45,23 @@ variable "fargate_memory" {
   default     = "512"
 }
 
+variable "lb_port" {
+  description = "Load Balancer port"
+  default     = 80
+}
+
+variable "cpu_threshold_high" {
+  default     = 85
+}
+
+variable "cpu_threshold_low" {
+  default     = 40
+}
+
+variable "memory_threshold_high" {
+  default     = 85
+}
+
+variable "memory_threshold_low" {
+  default     = 30
+}
