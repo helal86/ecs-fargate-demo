@@ -20,7 +20,9 @@ Edit the `credentials` file in the root of the folder and enter your AWS secret 
 
 ## Deploy using Terraform
 
-  
+ You can run the `deploy.sh` script which will automate the deployment using the credentials and variables set, run the script using the following command `./deploy.sh` - once complete the script will attempt to curl the load balancer for a response and display it on the terminal window. 
+
+Manual deployment steps below: 
 
 1. Initialise terraform by running the following command `terraform init`, terraform will download the required providers
 
