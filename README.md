@@ -32,6 +32,7 @@ Edit the `credentials` file in the root of the folder and enter your AWS secret 
 
 5. You may get a 503 error whilst the cluster is provisioning the tasks - please wait
 
+6. To delete the whole infrastructure run `terraform destroy`, you will be prompted to confirm before everything is deleted. 
   
 
 ## What is the code doing?
